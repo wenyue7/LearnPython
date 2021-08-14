@@ -84,7 +84,7 @@ def createInteraction():
         rl, wl, el = select.select([master1, master2], [], [], 1)
         for master in rl:
             data = os.read(master, 128)
-            print("read %d data." %len(data))
+            # print("read %d data." %len(data))
             if master == master1:
                 os.write(master2, data)
             else:
