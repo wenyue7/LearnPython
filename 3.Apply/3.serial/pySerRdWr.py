@@ -49,10 +49,10 @@ def creatSer():
 
     mSer2 = serial.Serial(mpty.slaveName2, 38400, timeout = 0.5)
     if mSer2.isOpen():
-        print("mSer1 open success !")
+        print("mSer2 open success !")
         prnSerInfo(mSer2)
     else:
-        print("mSer1 open failed !")
+        print("mSer2 open failed !")
 
     return mSer1, mSer2
 
