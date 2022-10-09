@@ -16,12 +16,8 @@
 # 创建线程之后需要手动启动才能运行，threading 模块提供了 start() 方法用来启动线程。
 # 
 
-
-
 import threading
 import time
-
-
 
 
 #定义线程要调用的方法，*add可接收多个以非关键字方式传入的参数
@@ -30,8 +26,6 @@ def action(*add):
         time.sleep(1)
         #调用 getName() 方法获取当前执行该程序的线程名
         print(threading.current_thread().getName() +" "+ arc)
-
-
 
 
 #定义为线程方法传入的参数
