@@ -42,6 +42,7 @@ parser.add_argument("second_number", help="second number to be added", type=int)
 parser.add_argument('-e', type=int, default=30, help="help info of -e")
 parser.add_argument('--batch', type=int, default=4)
 parser.add_argument('-t', '--test', type=int, default=5, help="help info of test")
+parser.add_argument('-a', action='store_true', default=False, help='action test')
 
 # 3. 从命令行中结构化解析参数
 args = parser.parse_args()
