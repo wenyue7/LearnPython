@@ -29,6 +29,9 @@ import argparse
 # append：将遇到的值存储成列表，也就是如果参数重复则会保存多个值;
 # append_const：将参数规范中定义的一个值保存到一个列表；
 # count：存储遇到的次数；此外，也可以继承 argparse.Action 自定义参数解析；
+# nargs='+': 传入一个或多个参数
+# nargs='*': 传入零个或多个参数
+# nargs='?': 传入零个或一个参数
 
 # argparse 会生成帮助和使用信息提示，并在提供无效参数时发出错误。
 
@@ -39,7 +42,7 @@ parser = argparse.ArgumentParser(description='Demo of argparse')
 # 2. 添加命令行参数
 parser.add_argument("first_number", help="first number to be added", type=int)
 parser.add_argument("second_number", help="second number to be added", type=int)
-parser.add_argument('-e', type=int, default=30, help="help info of -e")
+parser.add_argument('-e', type=int, default=30, nargs='+', help="help info of -e")
 parser.add_argument('--batch', type=int, default=4)
 parser.add_argument('-t', '--test', type=int, default=5, help="help info of test")
 parser.add_argument('-a', action='store_true', default=False, help='action test')
