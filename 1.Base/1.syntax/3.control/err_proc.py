@@ -6,6 +6,8 @@
 # Created Time: Mon Sep 11 09:19:21 2023
 #########################################################################
 
+# reference: https://www.runoob.com/python/python-exceptions.html
+
 # Python提供了两个非常重要的功能来处理程序在运行中出现的异常和错误
 # 1. try...except语句，（拓展：try-except-else-finally）
 # 2. 另一个是断言
@@ -97,6 +99,8 @@ def selfDefErr(num):
       # #b.主动抛出
       # raise ex
 
+  # Exception 是标准错误异常中的 常规错误的基类，几乎可以捕获所有异常
+  # 其他标准错误异常可以查看参考文档
   except Exception as err:
     print(err)
 
