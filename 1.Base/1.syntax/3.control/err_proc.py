@@ -125,6 +125,20 @@ if __name__ == "__main__":
   selfDefErr(0)
   selfDefErr(6)
 
+  print("====== with ======")
+  with open('./test_runoob.txt', 'w') as file:
+    file.write('hello world !')
+  # 等价于
+  # file = open('./test_runoob.txt', 'w')
+  # try:
+  #   file.write('hello world')
+  # finally:
+  #   file.close()
+  # 使用 with 关键字系统会自动调用 f.close() 方法， with 的作用等效于
+  # try/finally 语句是一样的。
+  #
+  # 验证file是否已经关闭：
+  print("file is closed: {}".format(file.closed))
 
   print("====== assert ======")
   # 语法：assert expression
