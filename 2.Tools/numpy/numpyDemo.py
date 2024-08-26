@@ -11,11 +11,11 @@ def numpyDemo():
     print('size:', arr.size)
 
     print('#================================================')
-    a32 = np.array([1,23,456], dtype=np.int)
+    a32 = np.array([1,23,456], dtype=int)
     print(a32.dtype)
     a64 = np.array([1,23,456], dtype=np.int64)
     print(a64.dtype)
-    f64 = np.array([1,23,456], dtype=np.float)
+    f64 = np.array([1,23,456], dtype=float)
     print(f64.dtype)
     print('\n')
 
@@ -44,7 +44,7 @@ def numpyDemo():
     print(li)
     print(li.dtype)
     print('\n')
-    
+
     print('#================================================')
     a = np.array([10,20,30,40])
     b = np.arange(4)
