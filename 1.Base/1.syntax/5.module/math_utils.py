@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+#########################################################################
+# File Name: math_utils.py
+# Author: LiHongjin
+# mail: 872648180@qq.com
+# Created Time: Fri  6 Sep 18:10:07 2024
+#########################################################################
+
 # 封装:
 #   容器——>数据的封装
 #   函数——>语句的封装
@@ -30,16 +38,23 @@
 # 如何探索模块
 #  打开Help中的Python Docs
 
-testVar = 9
+# math_utils.py
 
-def mfunc():
-    print("Hello module")
+def add(x, y):
+    """返回两个数的和"""
+    return x + y
 
+def subtract(x, y):
+    """返回两个数的差"""
+    return x - y
 
+def multiply(x, y):
+    """返回两个数的乘积"""
+    return x * y
 
-class CTest:
-  def __init__(self):
-      pass
-
-  def prnTset(self):
-      print("Hello class in module")
+def divide(x, y):
+    """返回两个数的商。如果y为0，则返回错误信息"""
+    if y == 0:
+        return "Error: Division by zero is not allowed."
+    else:
+        return x / y
