@@ -1,208 +1,72 @@
+#!/usr/bin/env python
+#########################################################################
+# File Name: numpyDemo.py
+# Author: LiHongjin
+# mail: 872648180@qq.com
+# Created Time: Fri  6 Sep 18:15:12 2024
+#########################################################################
+
 import numpy as np
 
-def numpyDemo():
-    print('#================================================')
-    print("hello world")
-    arr = np.array([[1,2,3], [2,3,4]])
-    print(arr)
-    print(type(arr))
-    print('number of dim:', arr.ndim)
-    print('shape:', arr.shape)
-    print('size:', arr.size)
+# 数组创建
+arr = np.array([1, 2, 3, 4, 5])
+print("一维数组:", arr)
 
-    print('#================================================')
-    a32 = np.array([1,23,456], dtype=int)
-    print(a32.dtype)
-    a64 = np.array([1,23,456], dtype=np.int64)
-    print(a64.dtype)
-    f64 = np.array([1,23,456], dtype=float)
-    print(f64.dtype)
-    print('\n')
+arr_2d = np.array([[1, 2, 3], [4, 5, 6]])
+print("二维数组:\n", arr_2d)
 
-    print('#================================================')
-    z = np.zeros((3, 4))
-    print(z)
-    print(z.dtype)
-    print()
+# 使用arange和linspace创建数值范围数组
+range_arr = np.arange(0, 10, 2)  # 从0到10（不包括10），步长为2
+print("arange数组:", range_arr)
 
-    one = np.ones((3, 4), dtype=int)
-    print(one)
-    print(one.dtype)
-    print()
+linspace_arr = np.linspace(0, 10, 5)  # 从0到10，均匀生成5个数
+print("linspace数组:", linspace_arr)
 
-    emt = np.empty((3, 4), dtype=int)
-    print(emt)
-    print(emt.dtype)
-    print()
+# 基本运算
+arr_plus = arr + 5  # 数组与标量的加法
+print("数组加标量:", arr_plus)
 
-    ran = np.arange(12).reshape((3,4))
-    print(ran)
-    print(ran.dtype)
-    print()
+arr_mult = arr * arr  # 数组元素相乘
+print("数组元素相乘:", arr_mult)
 
-    li = np.linspace(1, 10, 6).reshape(2, 3)
-    print(li)
-    print(li.dtype)
-    print('\n')
+# 索引与切片
+print("索引第一个元素:", arr[0])
+print("切片第二个到第四个元素（不包括第四个）:", arr[1:4])
 
-    print('#================================================')
-    a = np.array([10,20,30,40])
-    b = np.arange(4)
-    print(a)
-    print(b)
-    print()
+# 数组重塑
+arr_reshape = arr_2d.reshape(1, 6)  # 将二维数组重塑为一行六列的数组
+print("重塑后的数组:\n", arr_reshape)
 
-    print(a+b)
-    print(a-b)
-    print(a*b)
-    print()
+# 广播机制
+# 创建两个形状兼容的数组
+arr_5x1 = np.array([[1], [2], [3], [4], [5]])  # 形状为 (5, 1)
+arr_1x3 = np.array([[1, 2, 3]])  # 注意这里是一个 1x3 的数组，而不是 2x3
+# 使用广播进行元素级乘法
+# arr_5x1 的第二维（列）会被广播到与 arr_1x3 的第二维（列）相同的大小
+result = arr_5x1 * arr_1x3
+print("广播后的元素级乘法结果:\n", result)
 
-    print(a**b)
-    print()
+# 线性代数
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
 
-    print(10*np.sin(a))
-    print()
+# 矩阵乘法
+print("矩阵A乘以矩阵B:\n", np.dot(A, B))
 
-    print(b<3)
-    print()
+# 逆矩阵
+if np.linalg.det(A) != 0:  # 检查行列式是否非零
+    print("矩阵A的逆矩阵:\n", np.linalg.inv(A))
 
-    print('#================================================')
-    a = np.array([[1,2], [3,4]])
-    b = np.arange(4).reshape(2, 2)
-    print(a)
-    print(b)
-    print()
+# 统计函数
+print("数组arr的均值:", np.mean(arr))
+print("数组arr的标准差:", np.std(arr))
+print("数组arr的最大值:", np.max(arr))
+print("数组arr的最小值及其索引:", np.min(arr), np.argmin(arr))
 
-    print(a * b)
-    print(np.dot(a, b)) #矩阵乘法，或下面：
-    print(a.dot(b))
-    print()
+# 排序
+sorted_arr = np.sort(arr)
+print("排序后的数组:", sorted_arr)
 
-    print('#================================================')
-    a = np.random.random((2, 4))
-    print(a)
-    print(np.sum(a))
-    print(np.min(a))
-    print(np.max(a))
-    print()
-
-    print(np.sum(a, axis=1))  #返回每一行的和。 axis=1代表行
-    print(np.min(a, axis=0))  #返回每一列的最小值。 axis=0代表列
-    print(np.mean(a, axis=1))  #返回每一行的平均值
-
-    print('#================================================')
-    A = np.arange(2, 14).reshape(3, 4)
-    print(A)
-
-    print(np.argmin(A)) #最小索引
-    print(np.argmax(A)) #最大索引
-    print()
-
-    print(A.mean())
-    print(np.median(A)) #中位数
-    print(A.cumsum()) #累加值
-    print(np.diff(A)) #相邻差值
-    print()
-
-    print('#================================================')
-    A = np.array([[1,0], [0,3]])
-    print(A)
-    print(A.nonzero()) #分别输出非零元素的行和列值
-    print(np.sort(A)) #逐行排序后的矩阵
-    print(np.sort(A, axis=0)) #逐列排序的矩阵
-    print(np.sort(A).nonzero())
-    print()
-
-    B = np.arange(14, 2, -1).reshape(3, 4)
-    print(B)
-    print(B.transpose()) #转置
-    print((B.T).dot(B))  #转置
-    print()
-
-    print(np.clip(B, 5, 9))  #B中将范围限定，大于9的数都为9，小于5的都为5，之间的数不变
-    print()
-
-    print('#================================================')
-    A = np.arange(3, 7)
-    print(A)
-    print(A[2])
-    print()
-
-    B = np.arange(3, 15).reshape(3, 4)
-    print(B)
-    print(B[2])
-    print(B[2][1])
-    print(B[2, 1])
-    print()
-
-    print(B[2, 2:])
-    print(B[1:, 2:])
-    print()
-
-    for row in B:
-        print(row)
-    print()
-
-    for col in B.T:
-        print(col)
-    print()
-
-    print(B.flatten())
-    for elm in B.flat:
-        print(elm)
-
-    print('#================================================')
-    #矩阵合并
-    A = np.array([1,1,1])
-    B = np.array([2,2,2])
-    C = np.vstack((A, B, A, B))
-    print(C)
-    print(A.shape, (A.T).shape)
-    print(C.shape)
-    print()
-
-    D = np.hstack((A, B))
-    print(D)
-    print()
-
-    print(A[np.newaxis, :])
-    print(A[:, np.newaxis])
-    print(np.hstack((A[:, np.newaxis], B[:, np.newaxis])))
-    print()
-
-
-    print(np.stack((A,B), axis=0))
-    print(np.stack((A,B), axis=1))
-    #print(np.concatenate((A,B,B,A), axis=0))
-    #print(np.concatenate((A,B,B,A), axis=1))
-
-    print('#================================================')
-    A = np.arange(12).reshape(3, 4)
-    print(A)
-    print(np.split(A, 2, axis=1))
-    print(np.split(A, 3, axis=0))
-    print()
-
-    print(np.array_split(A, 3, axis=1)) #不等分割
-    print()
-
-    print(np.hsplit(A, 2))
-    print(np.vsplit(A, 1))
-
-    print('#================================================')
-    A = np.arange(4)
-    B = A
-    C = B
-    D = A.copy()
-    print(A, B, C, D)
-    A[0] = 5
-    print(A, B, C, D)
-    print(id(A), id(B), id(C), id(D)) #id返回指针的值（内存地址）
-    print()
-
-
-def main():
-    numpyDemo()
-
-if __name__ == "__main__":
-    main()
+# 过滤（布尔索引）
+filtered_arr = arr[arr > 3]
+print("大于3的元素:", filtered_arr)
