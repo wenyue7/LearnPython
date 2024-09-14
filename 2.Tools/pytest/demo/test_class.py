@@ -6,7 +6,7 @@
 # Created Time: Fri Oct 20 14:50:25 2023
 #########################################################################
 
-class TestDome:
+class TestDomo:
     def test_demo1(self):
         assert 11 == 11
 

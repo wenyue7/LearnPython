@@ -9,5 +9,6 @@
 import pytest
 
 if __name__ == "__main__":
-    # pytest.main(["./test_sample.py"])
-    pytest.main()
+    # pytest.main(["./test_sample.py", '-v'])
+    # pytest.main(["", '-v'])
+    pytest.main(['-v'])
