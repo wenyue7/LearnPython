@@ -8,10 +8,12 @@
 
 
 # 基本的语法结构如下：
-# [expression for variable in iterable]
-#   expression：对于每个元素要执行的表达式。
-#   for variable in iterable：一个for循环，迭代iterable中的每个元素，并将每个元素
-#   赋值给variable。
+# new_list = [expression for item in iterable if condition]
+#   expression：生成新列表中的元素。
+#   item：迭代对象中的每一个元素。
+#   iterable：你要迭代的对象（如列表、元组等）。
+#   condition：可选的过滤条件，item只有满足条件的元素才会被包含在新列表中
+
 
 # 基本结构
 list = [ x**2 for x in range(10) ]  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
