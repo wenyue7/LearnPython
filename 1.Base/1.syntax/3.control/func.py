@@ -43,6 +43,10 @@ def example_with_lambda():
     """
     这个函数展示了lambda表达式的使用。
     Lambda表达式用于创建匿名函数对象。
+
+    基本语法: lambda arguments: expression
+        arguments：输入参数，可以有多个
+        expression：执行的单行表达式，返回结果
     """
     # lambda表达式，接受两个参数并返回它们的和
     add = lambda x, y: x + y
@@ -52,6 +56,16 @@ def example_with_lambda():
     numbers = [1, 2, 3, 4, 5]
     doubled = list(map(lambda x: x * 2, numbers))
     print(f"列表元素乘以2: {doubled}")
+
+    # 使用 lambda 创建一个嵌套函数
+    multiply = lambda x: lambda y: x * y
+    double = multiply(2)
+    print(f"lambda: {double(5)}")  # 输出: 10
+
+    # 用 lambda 实现条件表达式
+    max_num = lambda a, b: a if a > b else b
+    print(f"lambda: {max_num(10, 20)}")  # 输出: 20
+
 
 def main():
     # 打印函数文档
