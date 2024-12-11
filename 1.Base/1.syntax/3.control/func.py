@@ -67,6 +67,78 @@ def example_with_lambda():
     print(f"lambda: {max_num(10, 20)}")  # 输出: 20
 
 
+def map_usage():
+    '''
+    map 函数将一个函数应用到一个可迭代对象的每个元素上，并返回一个迭代器。
+    语法 map(function, iterable)
+        function：一个单参数函数，用于处理每个元素。
+        iterable：一个可迭代对象（如列表、元组等）。
+    '''
+    # 将所有元素平方
+    nums = [1, 2, 3, 4]
+    squared = list(map(lambda x: x**2, nums))
+    print(f"map usage: {squared}")  # 输出: [1, 4, 9, 16]
+    print(f"map usage: {type(squared)}")
+
+    # 将数字转换为字符串
+    nums = [1, 2, 3]
+    str_nums = list(map(str, nums))
+    print(f"map usage: {str_nums}")  # 输出: ['1', '2', '3']
+
+    # 对两个列表逐元素相加
+    nums1 = [1, 2, 3]
+    nums2 = [4, 5, 6]
+    sum_lists = list(map(lambda x, y: x + y, nums1, nums2))
+    print(f"map usage: {sum_lists}")  # 输出: [5, 7, 9]
+
+def filter_usage():
+    '''
+    filter 函数用于从可迭代对象中筛选出满足特定条件的元素，返回一个迭代器
+    语法: filter(function, iterable)
+        function：一个返回布尔值的函数，用于测试每个元素
+        iterable：一个可迭代对象
+    '''
+    # 筛选出偶数
+    nums = [1, 2, 3, 4, 5, 6]
+    even_nums = list(filter(lambda x: x % 2 == 0, nums))
+    print(f"filter: {even_nums}")  # 输出: [2, 4, 6]
+
+    # 筛选出长度大于3的字符串
+    words = ["cat", "elephant", "dog", "hippopotamus"]
+    long_words = list(filter(lambda x: len(x) > 3, words))
+    print(f"filter: {long_words}")  # 输出: ['elephant', 'hippopotamus']
+
+def sorted_usage():
+    '''
+    sorted 函数用于对可迭代对象进行排序，返回一个新的列表
+    语法: sorted(iterable, key=None, reverse=False)
+        iterable：要排序的可迭代对象
+        key：一个函数，用于从每个元素中提取比较的关键字（可选）
+        reverse：一个布尔值。如果为 True，则降序排序；默认为升序排序
+    '''
+
+    # 对数字列表排序
+    nums = [5, 2, 9, 1]
+    sorted_nums = sorted(nums)
+    print(f"sorted: {sorted_nums}")  # 输出: [1, 2, 5, 9]
+
+    # 按字符串长度排序
+    words = ["cat", "elephant", "dog", "hippopotamus"]
+    sorted_words = sorted(words, key=lambda x: len(x))
+    print(f"sorted: {sorted_words}")  # 输出: ['cat', 'dog', 'elephant', 'hippopotamus']
+
+    # 降序排序
+    nums = [5, 2, 9, 1]
+    sorted_nums_desc = sorted(nums, reverse=True)
+    print(f"sorted: {sorted_nums_desc}")  # 输出: [9, 5, 2, 1]
+
+    # 按元组的第二个元素排序
+    items = [(1, 'apple'), (3, 'banana'), (2, 'cherry')]
+    sorted_items = sorted(items, key=lambda x: x[1])
+    print(f"sorted: {sorted_items}")  # 输出: [(1, 'apple'), (3, 'banana'), (2, 'cherry')]
+
+
+
 def main():
     # 打印函数文档
     print_function_documentation(my_function)
@@ -80,6 +152,15 @@ def main():
 
     # 展示lambda表达式的使用
     example_with_lambda()
+
+    # map usage
+    map_usage()
+
+    # filter usage
+    filter_usage()
+
+    # sorted usage
+    sorted_usage()
 
 if __name__ == "__main__":
     main()
